@@ -1,0 +1,28 @@
+BEGIN;
+
+DROP TABLE IF EXISTS sale_items;
+DROP TABLE IF EXISTS sales;
+
+DROP TABLE IF EXISTS purchase_items;
+DROP TABLE IF EXISTS purchases;
+
+DROP TABLE IF EXISTS inventory_movements;
+DROP TABLE IF EXISTS inventory;
+
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS warehouses;
+DROP TABLE IF EXISTS suppliers;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS categories;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS passwords;
+DROP TABLE IF EXISTS roles;
+
+DROP TYPE IF EXISTS sale_status;
+DROP TYPE IF EXISTS purchase_status;
+DROP TYPE IF EXISTS inventory_movement_type;
+
+DROP FUNCTION IF EXISTS set_updated_at();
+
+COMMIT;
