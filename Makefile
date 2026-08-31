@@ -6,6 +6,7 @@ ifneq (,$(wildcard $(ENV_FILE)))
 endif
 
 COMPOSE := docker compose --env-file $(ENV_FILE)
+LOCALSTACK_COMPOSE := docker compose -f ./docker/localstack/docker-compose.yml --env-file $(ENV_FILE)
 MIGRATIONS_DIR := migrations
 DATABASE_URL := postgresql://$(DATABASE_USER):$(DATABASE_PASSWORD)@$(DATABASE_HOST):$(DATABASE_PORT)/$(DATABASE_NAME)?sslmode=$(DATABASE_SSLMODE)
 
@@ -87,6 +88,10 @@ migrate-create:
 		exit 1; \
 	fi
 	migrate create -ext sql -dir $(MIGRATIONS_DIR) -seq $(name)
+
+.PHONY: localstack-up
+localstack-up:
+	$(LOCALSTACK_COMPOSE) up -d
 
 # Docker-compose commands
 up-local:

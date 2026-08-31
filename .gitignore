@@ -24,10 +24,24 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
-.env.local
-.env.dev
-.env.prod
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# LocalStack
+docker/localstack/volume/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
 
 # Editor/IDE
 # .idea/
